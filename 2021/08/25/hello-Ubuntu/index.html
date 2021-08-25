@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://qxxjfxr1v.hn-bkt.clouddn.com/1629880067302.png">
 <meta property="og:image" content="http://qxxjfxr1v.hn-bkt.clouddn.com/1629888755222.png">
 <meta property="article:published_time" content="2021-08-25T07:48:33.000Z">
-<meta property="article:modified_time" content="2021-08-25T10:55:01.419Z">
+<meta property="article:modified_time" content="2021-08-25T15:21:45.421Z">
 <meta property="article:author" content="caiman">
 <meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary">
@@ -243,14 +243,44 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh</span><br><span class="line">chmod +x install.sh</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
 
 <p>多试几次总能成功的</p>
+<p>在root权限下，为root 用户设置 zsh 为系统默认 shell ：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
 
-<p>为root 用户设置 zsh 为系统默认 shell </p>
 <p>切到root用户就能看到效果，用箭头的</p>
 <p><img src="http://qxxjfxr1v.hn-bkt.clouddn.com/1629888755222.png"></p>
 <blockquote>
-<p>如果你要重新恢复到 bash：<code>chsh -s /bin/bash root</code> </p>
+<p>如果你要重新恢复到 bash：<code>chsh -s /bin/bash root</code></p>
 </blockquote>
+<p>vim一直装不成功我就切回了bash下的root权限下载才成功的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
+
+
+
+<p>安装插件<code>zsh-syntax-highlighting</code></p>
+<p> 这个插件会对终端命令高亮显示,比如正确的拼写会是绿色标识,否则是红色  ,另外对于一些shell输出语句也会有高亮显示,算是不错的辅助插件 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">配置里面添加插件名plugins=( 前面的一些插件名称 zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line">保存退出刷新<span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>主题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>把主题改成THEME=”ys”<br>三百多个主题，按照自己喜好来就行，我是选了最多人用的一个主题<code>ys</code></p>
+<p>重新打开shell看效果</p>
+<p><strong>Zsh一些好用</strong></p>
+<p><kbd>Tab</kbd>自动补全</p>
+<p>使用<kbd> ctrl</kbd><kbd>r</kbd> 来搜索命令历史记录。按完此快捷键后，可以输入关键命令词语，如果历史记录有含有此词语会显示出来。</p>
+<p>命令别名：     </p>
+<ul>
+<li>在命令行中输入<code>alias</code> 可以查看已经有的命令别名</li>
+<li>自己新增一些别名</li>
+</ul>
+<h2 id="0x09Pwndbg"><a href="#0x09Pwndbg" class="headerlink" title="0x09Pwndbg"></a>0x09Pwndbg</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/pwndbg/pwndbg</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/scwuaptx/Pwngdb.git </span><br><span class="line"><span class="built_in">cd</span> pwndbg</span><br><span class="line">sudo ./setup.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p><font color=red>tips：</font>yum不是Ubuntu默认的包，用yum install tools都改成apt-get install tools</p>
 
       
 	  
@@ -380,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">0x01镜像下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">0x02设置系统语言为中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03ifconfig"><span class="toc-number">3.</span> <span class="toc-text">0x03ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04VMwaretools"><span class="toc-number">4.</span> <span class="toc-text">0x04VMwaretools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">0x05更换国内源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06python"><span class="toc-number">6.</span> <span class="toc-text">0x06python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07LibcSearcher"><span class="toc-number">7.</span> <span class="toc-text">0x07LibcSearcher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08zsh"><span class="toc-number">8.</span> <span class="toc-text">0x08zsh</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">0x01镜像下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">0x02设置系统语言为中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03ifconfig"><span class="toc-number">3.</span> <span class="toc-text">0x03ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04VMwaretools"><span class="toc-number">4.</span> <span class="toc-text">0x04VMwaretools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">0x05更换国内源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06python"><span class="toc-number">6.</span> <span class="toc-text">0x06python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07LibcSearcher"><span class="toc-number">7.</span> <span class="toc-text">0x07LibcSearcher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08zsh"><span class="toc-number">8.</span> <span class="toc-text">0x08zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x09Pwndbg"><span class="toc-number">9.</span> <span class="toc-text">0x09Pwndbg</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -495,11 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>
