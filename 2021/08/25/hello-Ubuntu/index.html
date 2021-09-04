@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://qxxjfxr1v.hn-bkt.clouddn.com/1629880067302.png">
 <meta property="og:image" content="http://qxxjfxr1v.hn-bkt.clouddn.com/1629888755222.png">
 <meta property="article:published_time" content="2021-08-25T07:48:33.000Z">
-<meta property="article:modified_time" content="2021-08-25T15:21:45.421Z">
+<meta property="article:modified_time" content="2021-08-27T12:09:55.605Z">
 <meta property="article:author" content="caiman">
 <meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary">
@@ -277,9 +277,7 @@
 </ul>
 <h2 id="0x09Pwndbg"><a href="#0x09Pwndbg" class="headerlink" title="0x09Pwndbg"></a>0x09Pwndbg</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/pwndbg/pwndbg</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/scwuaptx/Pwngdb.git </span><br><span class="line"><span class="built_in">cd</span> pwndbg</span><br><span class="line">sudo ./setup.sh</span><br></pre></td></tr></table></figure>
 
-
-
-<hr>
+<h2 id="0x10pwntool"><a href="#0x10pwntool" class="headerlink" title="0x10pwntool"></a>0x10pwntool</h2><hr>
 <p><font color=red>tips：</font>yum不是Ubuntu默认的包，用yum install tools都改成apt-get install tools</p>
 
       
@@ -381,6 +379,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/09/04/%E7%BD%91%E5%AE%89%E7%B2%BE%E8%8B%B1%E8%B5%9B1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          网安精英赛模拟练习题1
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/08/16/picture_link/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">picture_link</div>
@@ -410,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">0x01镜像下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">0x02设置系统语言为中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03ifconfig"><span class="toc-number">3.</span> <span class="toc-text">0x03ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04VMwaretools"><span class="toc-number">4.</span> <span class="toc-text">0x04VMwaretools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">0x05更换国内源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06python"><span class="toc-number">6.</span> <span class="toc-text">0x06python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07LibcSearcher"><span class="toc-number">7.</span> <span class="toc-text">0x07LibcSearcher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08zsh"><span class="toc-number">8.</span> <span class="toc-text">0x08zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x09Pwndbg"><span class="toc-number">9.</span> <span class="toc-text">0x09Pwndbg</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">0x01镜像下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">0x02设置系统语言为中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03ifconfig"><span class="toc-number">3.</span> <span class="toc-text">0x03ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04VMwaretools"><span class="toc-number">4.</span> <span class="toc-text">0x04VMwaretools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">0x05更换国内源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06python"><span class="toc-number">6.</span> <span class="toc-text">0x06python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07LibcSearcher"><span class="toc-number">7.</span> <span class="toc-text">0x07LibcSearcher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08zsh"><span class="toc-number">8.</span> <span class="toc-text">0x08zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x09Pwndbg"><span class="toc-number">9.</span> <span class="toc-text">0x09Pwndbg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x10pwntool"><span class="toc-number">10.</span> <span class="toc-text">0x10pwntool</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -530,6 +537,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网安</a>
               </li>
             
             <div class="clearfix"></div>
